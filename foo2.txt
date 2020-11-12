@@ -1,0 +1,4 @@
+This is foo1.txt
+I am learning python.
+how are you
+I am fine. Thank you!
