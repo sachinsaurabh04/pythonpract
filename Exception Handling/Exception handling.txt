@@ -1,0 +1,115 @@
+python provides 2 very important features to handle any unexpected error in
+your programs and to add debugging capabilities in them-
+1. Exception Handling
+2. Assertions
+
+Standard Exceptions:-
+EXCEPTION NAME          DESCRIPTION
+Exception               Base class for all exceptions
+StopIteration           Raised when the next() method of an iterator does not point to any object.
+SystemExit              Raised by the sys.exit() function.
+StandardError           Base class for all built-in exceptions except StopIteration and SystemExit.
+ArithmeticError         Base class for all errors that occur for numeric calculation.
+OverflowError           Raised when a calculation exceeds maximum limit for a numeric type.
+FloatingPointError      Raised when a floating point calculation fails.
+ZeroDivisonError        Raised when division or modulo by zero takes place for all numeric types.
+AssertionError          Raised in case of failure of the Assert statement.
+AttributeError          Raised in case of failure of attribute reference or assignment.
+EOFError                Raised when there is no input from either the raw_input() or input() function and the end of file is reached.
+ImportError             Raised when an import statement fails.
+KeyboardInterrupt       Raised when the user interrupts program execution, usually by pressing Ctrl+c.
+LookupError             Base class for all lookup errors.
+IndexError              Raised when an index is not found in a sequence.
+KeyError                Raised when the specified key is not found in the dictionary.
+NameError               Raised when an identifier is not found in the local or global namespace.
+UnboundLocalError       Raised when trying to access a local variable in a function or method but no value has been assigned to it.
+EnvironmentError        Base class for all exceptions that occur outside the Python environment.
+IOError                 Raised when an input/ output operation fails, such as the print statement or the open() function when trying to open a file that does not exist.
+OSError                 Raised for operating system-related errors.
+SyntaxError             Raised when there is an error in Python syntax.
+IndentationError        Raised when indentation is not specified properly.
+SystemError             Raised when the interpreter finds an internal problem, but when this error is encountered the Python interpreter does not exit.
+SystemExit              Raised when Python interpreter is quit by using the sys.exit() function. If not handled in the code, causes the interpreter to exit.
+TypeError               Raised when an operation or function is attempted that is invalid for the specified data type.
+ValueError              Raised when the built-in function for a data type has the valid type of arguments, but the arguments have invalid values specified.
+RuntimeError            Raised when a generated error does not fall into any category.
+NotImplementedError     Raised when an abstract method that needs to be implemented in an inherited class is not actually implemented.
+
+Assertions in Python:-
+An assertion is a sanity-check that you can turn on or turn off when you are done with your testing of the program.
+    - The easiest way to think of an assertion is to liken it to a raise-if statement (or to be more accurate, a raise-if-not statement). An expression is tested, and if the
+      result comes up false, an exception is raised.
+    - Assertions are carried out by the assert statement, the newest keyword to Python, introduced in version 1.5.
+    - Programmers often place assertions at the start of a  function to check for valid input, and after a function call to check for valid output.
+
+
+The assert Statement:-
+When it encounters an assert statement, Python evaluates the accompanying expression, which is hopefully true. If the expression is false, Python raises an AssertionError exception.
+The syntax for assert is −
+    assert Expression[, Arguments]
+
+Example Program:
+
+#!/usr/bin/python3
+def KelvinToFahrenheit(Temperature):
+    assert (Temperature >= 0),"Colder than absolute zero!"
+    return ((Temperature-273)*1.8)+32
+print (KelvinToFahrenheit(273))
+print (int(KelvinToFahrenheit(505.78)))
+print (KelvinToFahrenheit(-5))
+
+O/P:
+32.0
+451
+Traceback (most recent call last):
+File "test.py", line 9, in
+print KelvinToFahrenheit(-5)
+File "test.py", line 4, in KelvinToFahrenheit
+assert (Temperature >= 0),"Colder than absolute zero!"
+AssertionError: Colder than absolute zero!
+
+What is Exception?
+An exception is an event, which occurs during the execution of a program that disrupts the normal flow of the program's
+instructions. In general, when a Python script encounters a situation that it cannot cope with, it raises an exception.
+An exception is a Python object that represents an error.
+
+When a Python script raises an exception, it must either handle the exception immediately otherwise it terminates and quits.
+
+Handling anException
+If you have some suspicious code that may raise an exception, you can defend your program by placing the suspicious code
+in a try: block. After the try: block, include an except: statement, followed by a block of code which handles the problem
+as elegantly as possible.
+
+Syntax:
+Here is simple syntax of try....except...else blocks
+
+try:
+    You do your operations here
+    ......................
+except ExceptionI:
+    If there is ExceptionI, then execute this block.
+except ExceptionII:
+    If there is ExceptionII, then execute this block.
+    ......................
+else:
+    If there is no exception then execute this block.
+
+
+Here are few important points about the above-mentioned syntax-
+    - A single try statement can have multiple except statements. This is useful when the try block contains statements that may throw different types of exceptions.
+    - You can also provide a generic except clause, which handles any exception.
+    - After the except clause(s), you can include an else-clause. The code in the elseblock executes if the code in the try: block does not raise an exception.
+    - The else-block is a good place for code that does not need the try: block's protection.
+
+#!/usr/bin/python3
+try:
+    fh = open("testfile", "w")
+    fh.write("This is my test file for exception handling!!")
+except IOError:
+    print ("Error: can\'t find file or read data")
+else:
+    print ("Written content in the file successfully")
+    fh.close()
+
+O/P:
+Written content in the file successfully
