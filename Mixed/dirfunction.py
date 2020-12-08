@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 #The dir() built-in function returns a sorted list of strings containing the names defined by a module.
 # Import built-in module math
-import math
 content = dir(list)
 print (content)
 
