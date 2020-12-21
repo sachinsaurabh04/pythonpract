@@ -1,5 +1,5 @@
 #!/usr/bin/python
-
+#This example opens a file, writes content in the file and comes out gracefully because there is no problem at all.
 try:
     fh=open("testfile","w")
     fh.write("This is my test file for exception handling")
