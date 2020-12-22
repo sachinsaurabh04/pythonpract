@@ -39,3 +39,115 @@ class ClassName:
     'Optional class documentation string'
     class_suite
 
+ The class has a documentation string, which can be accessed
+viaClassName.__doc__.
+
+ The class_suite consists of all the component statements defining class members,
+data attributes and functions.
+
+For example see class1.py file:-
+
+class Employee:
+    'Common base class for all employees'
+    empCount = 0
+
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.empCount +=1
+
+    def displayCount(self):
+        print ("Total Employee %d" % Employee.empCount)
+
+    def displayEmployee(self):
+        print("Name : ", self.name, ", salary: ", self.salary)
+
+ The variable empCount is a class variable whose value is shared among all the
+instances of a in this class. This can be accessed as Employee.empCount from
+inside the class or outside the class.
+ The first method __init__() is a special method, which is called class constructor
+or initialization method that Python calls when you create a new instance of this
+class.
+ You declare other class methods like normal functions with the exception that the
+first argument to each method is self. Python adds the self argument to the list for
+you; you do not need to include it when you call the methods.
+
+Creating Instance Objects:
+-----------------------------
+To Create instance of a class, you call the class using class name and pass in whatever argument its __init__ method accepts
+This would create first object of Employee class
+emp1 = Employee("Zara",2000)
+
+This would create second object of Employee class
+emp2 = Employee("Mani", 5000)
+
+Accessing Attributes:
+----------------------
+you access the object's attributes using the dot operator with object. Class variable would be accessed using class name as follows-
+
+emp1.displayEmployee()
+emp2.displayEmployee()
+print("Total Employee %d" % Employee.empCount)
+
+==============================================
+Now, Putting all the concepts together-
+
+class Employee:
+    'Common base class for all employees'
+    empCount = 0
+
+    def __init__(self, name, salary):
+        self.name = name
+        self.salary = salary
+        Employee.empCount +=1
+
+    def displayCount(self):
+        print ("Total Employee %d" % Employee.empCount)
+
+    def displayEmployee(self):
+        print("Name : ", self.name, ", salary: ", self.salary)
+
+# Here adding the code for putting all concepts together
+
+#This would create first object of the Employee class"
+emp1=Employee("Zara",2000)
+emp2=Employee("Mukesh",3000)
+emp1.displayEmployee()
+emp2.displayEmployee()
+print("Total Employee %d " % Employee.empCount)
+
+#Here is the output:
+"""
+Name :  Zara , salary:  2000
+Name :  Mukesh , salary:  3000
+Total Employee 2
+"""
+
+you can add, remove, or modify attributes of class and objects at any time-
+emp1.salary = 7000 #Add an 'salary' attribute.
+emp1.name = 'XYZ' #Modify 'age' attribute.
+del emp1.salary # Delete 'age' attribute.
+
+Instead of using the normal statements to access attributes, you can use the following
+functions-
+ The getattr(obj, name[, default]): to access the attribute of object.
+ The hasattr(obj,name): to check if an attribute exists or not.
+ The setattr(obj,name,value): to set an attribute. If attribute does not exist, then
+it would be created.
+ The delattr(obj, name): to delete an attribute.
+
+hasattr(emp1, 'salary') # Returns true if 'salary' attribute exists
+getattr(emp1, 'salary') # Returns value of 'salary' attribute
+setattr(emp1, 'salary', 7000) # Set attribute 'age' at 8
+delattr(emp1, 'salary') # Delete attribute 'age'
+
+Built-In Class Attributes:
+Every Python class keeps the following built-in attributes and they can be accessed using
+dot operator like any other attribute −
+ __dict__: Dictionary containing the class's namespace.
+ __doc__: Class documentation string or none, if undefined.
+ __name__: Class name.
+ __module__: Module name in which the class is defined. This attribute is "__main__" in interactive mode.
+ __bases__: A possibly empty tuple containing the base classes, in the order of
+their occurrence in the base class list.
+
