@@ -173,4 +173,41 @@ and reclaims its space. However, a class can implement the special method__del__
 called a destructor, that is invoked when the instance is about to be destroyed. This
 method might be used to clean up any non-memory resources used by an instance.
 example:-
-gcollector.py
+gcollector.py & point.py
+
+Class Inheritance:
+Instead of starting from a scratch, you can create a class by deriving it from a pre-existing
+class by listing the parent class in parentheses after the new class name.
+The child class inherits the attributes of its parent class, and you can use those attributes
+as if they were defined in the child class. A child class can also override data members and
+methods from the parent.
+
+Syntax
+Derived classes are declared much like their parent class; however, a list of base classes
+to inherit from is given after the class name −
+
+class SubClassName (ParentClass1[, ParentClass2, ...]):
+    'Optional class documentation string'
+    class_suite
+
+
+ Example:
+ class3.py
+
+
+In a similar way, you can drive a class from multiple parent classes as follows
+
+class A: # define your class A
+.....
+class B: # define your calss B
+.....
+class C(A, B): # subclass of A and B
+.....
+
+
+Overriding Methods
+You can always override your parent class methods. One reason for overriding parent's
+methods is that you may want special or different functionality in your subclass.
+
+Example:
+override.py
